@@ -1,0 +1,25 @@
+.footer-widget .social-icon ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+.footer-widget .social-icon {
+	margin-top: 13px;
+	margin-left: -8px;
+}
+
+.footer-widget .social-icon ul li a {
+	display: block;
+	width: 35px;
+	height: 35px;
+	border-radius: 35px;
+	line-height: 35px;
+	background: #3d4350;
+	color: #32c5ff;
+	text-align: center;
+}
+
+.footer-widget .social-icon ul li a:hover {
+	background: #32c5ff;
+	color: #FFF;
+}
