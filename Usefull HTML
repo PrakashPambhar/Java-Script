@@ -1,2 +1,8 @@
   <!-- Wow / Animate CSS -->
   <h6 class="subtitle wow fadeInUp text-center" data-wow-delay="300ms">team.</h6>
+  
+   <!-- Font Family-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+     h1{
+          font-family: Poppins, sans-serif;
+     }
