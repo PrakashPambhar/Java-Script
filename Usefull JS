@@ -1,0 +1,73 @@
+$(function ($) {
+
+    "use strict";
+
+
+    /*=========================== Slider inside image move on Mouse Hover  ============================*/
+    //mouse over image drag
+    $('html').mousemove(function (e) {
+
+        var wx = $(window).width();
+        var wy = $(window).height();
+
+        var x = e.pageX - this.offsetLeft;
+        var y = e.pageY - this.offsetTop;
+
+        var newx = x - wx / 2;
+        var newy = y - wy / 2;
+
+
+
+        $('#wrapper div').each(function () {
+            var speed = $(this).attr('data-speed');
+            if ($(this).attr('data-revert')) speed *= -1;
+            TweenMax.to($(this), 1, {
+                x: (1 - newx * speed),
+                y: (1 - newy * speed)
+            });
+
+        });
+
+    });
+
+    /*=========================== Owl Carousel ===========================*/
+    var owls = $("#screenshot_owl_2");
+    owls.owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 6000,
+        smartSpeed: 1000,
+        stagePadding: 0,
+        loop: true,
+        nav: false,
+        items: 3,
+        lazyLoad: true,
+        center: true,
+        nav: true,
+        dots: false,
+        margin: 80,
+        navText: ["<i class='fas fa-long-arrow-alt-left '></i>", "<i class='fas fa-long-arrow-alt-right '></i>"],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            480: {
+                items: 1,
+            },
+            600: {
+                items: 2,
+            },
+            1000: {
+                items: 3,
+                margin: 30,
+            },
+            1200: {
+                items: 5,
+            }
+        }
+    });
+
+
+
+
+
+});
