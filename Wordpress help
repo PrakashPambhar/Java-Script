@@ -1,0 +1,309 @@
+<?php
+/*
+ * Template Name: Home Page
+ */
+
+get_header();
+?>
+<?php
+$image = get_field('header_background');
+
+if (!empty($image)) :
+    ?>
+    <section class="main-slider parallax" style="background:url('<?php echo $image['url']; ?>');" data-scroll-nav="0">
+    <?php endif; ?> <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="slider-content wow fadeInUp">
+                    <h1><?php echo get_field('banner_content_line1'); ?></h1>
+                    <h1>
+                        Save your
+                        <span class="typewrite" data-period="2000" 
+                        data-type='[ "Time.", "Money.", "Hardwork."]'>
+                            <span class="wrap"></span>
+                        </span>
+                    </h1>
+                    <!-- <h1 class="line_second"> -->
+                       <!--  <div class="scroller">
+                            <div class="inner">
+                                <?php
+                                if (have_rows('banner_content_line2')) :
+                                    while (have_rows('banner_content_line2')) : the_row();
+                                        ?>
+                                        <p><?php the_sub_field('banner_lines');  ?></p>
+                                    <?php
+                                    endwhile;
+                                endif;
+                                ?>
+
+                            </div>
+                        </div> -->
+                    <!-- </h1> -->
+                    <h1>
+                        <?php echo get_field('banner_content_line3'); ?>
+                    </h1>
+                    <!-- <h1><?php echo get_field('banner_content'); ?> </h1> -->
+                    <?php if (have_rows('button_group')) : ?>
+
+                        <?php
+                        $i = 0;
+                        while (have_rows('button_group')) : the_row();
+                            $button_name = get_sub_field('button_name');
+                            $button_link = get_sub_field('button_link');
+
+                            if ($button_link != '') {
+                                ?>
+                                <a class="btn-blue" href="<?php echo $button_link['url']; ?>">
+                                    <?php echo $button_name; ?></a>
+                            <?php
+                            }
+                            $i++;
+                        endwhile;
+                    endif;
+                    ?>
+                    <!--                    <a class="btn-blue">SUBSCRIBE</a>
+                                        <a class="btn-blue-outline">GIVE A GIFT</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="how-work" class="how-work sec-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="sec-heading wow fadeInUp">
+                    <h1><?php the_field('main_title'); ?></h1>
+                    <p><?php the_field('sub_title'); ?></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <?php if (have_rows('process_steps')) : ?>
+
+                <?php
+                $i = 0;
+                while (have_rows('process_steps')) : the_row();
+                    $process_name = get_sub_field('process_name');
+                    $pro_des = get_sub_field('pro_des');
+                    $process_icon = get_sub_field('process_icon');
+                    ?>
+                    <div class="col-md-3 col-12 col-sm-6 wow flipInX">
+                        <div class="how-work-step">
+                            <img src="<?php echo $process_icon['url']; ?>">
+                            <h3><?php echo $process_name; ?></h3>
+                            <p><?php echo $pro_des; ?></p>
+                        </div>
+                    </div>
+                    <?php
+                    $i++;
+                endwhile;
+            endif;
+            ?>
+        </div>
+</section>
+<section class="inside-box" id="inside-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-5 col-sm-5 wow fadeInUp">
+                <div class="box-insider-img">
+                    <img src="<?php bloginfo('template_url'); ?>/assets/images/box.png">
+                </div>
+            </div>
+            <div class="col-12 col-md-7 col-sm-7 wow ">
+                <div class="sec-heading wow fadeInRight">
+                    <h1><?php the_field('main_title_box'); ?></h1>
+                    <p><?php the_field('sub_title_box'); ?></p>
+                </div>
+                <ul class="inside-box-details wow fadeInRight">
+                    <?php if (have_rows('box_items')) : ?>
+
+                        <?php
+                        $i = 0;
+                        while (have_rows('box_items')) : the_row();
+                            $box_icon_text = get_sub_field('box_icon_text');
+                            ?>
+                            <li><i class="lni lni-check-mark-circle"></i><?php echo $box_icon_text; ?></li>
+                            <?php
+                            $i++;
+                        endwhile;
+                    endif;
+                    ?>
+                </ul>
+                <div class="service-type wow fadeInUp">
+                    <?php if (have_rows('box_facilitys')) : ?>
+
+                        <?php
+                        $i = 0;
+                        while (have_rows('box_facilitys')) : the_row();
+                            $icon = get_sub_field('icon');
+                            $icon_title = get_sub_field('icon_title');
+                            ?>
+                            <div class="service-type-inside">
+                                <img src="<?php echo $icon['url']; ?>">
+                                <h4><?php echo $icon_title ?></h4>
+                            </div>
+                            <?php
+                            $i++;
+                        endwhile;
+                    endif;
+                    ?>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="brand-used">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="sec-sup-heading wow fadeInUp">
+                    <h1><?php the_field('main_title_brand'); ?></h1>
+                </div>
+                <div class="brand-logo">
+                    <div class="brand owl-carousel owl-theme">
+                        <?php if (have_rows('our_brands')) : ?>
+
+                            <?php
+                            $i = 0;
+                            while (have_rows('our_brands')) : the_row();
+                                $brands_image = get_sub_field('brands_image');
+                                ?>
+                                <div class="item wow flipInX">
+                                    <img src="<?php echo $brands_image['url']; ?>">
+                                </div>
+                                <?php
+                                $i++;
+                            endwhile;
+                        endif;
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<?php
+$shipment_background = get_field('shipment_background');
+if (!empty($shipment_background)) :
+    ?>
+    <section id="next-shipment" class="next-shipment sec-padding parallax" style="background:url('<?php echo $shipment_background['url']; ?>')">
+
+    <?php endif; ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="sec-heading text-center wow fadeInUp">
+                    <h1><?php the_field('main_title_shipment'); ?></h1>
+                    <p><?php the_field('sub_title_shipment'); ?></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="timer wow flipInX">
+                    <!--                    <div id="countdown" class="timer"></div>-->
+                    <?php the_field('shipment_date'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="pricing" class="pricing sec-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="sec-heading text-center wow fadeInUp">
+                    <h1><?php the_field('main_title_plan'); ?></h1>
+                    <p><?php the_field('sub_title_plan'); ?></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <?php if (have_rows('plans')) : ?>
+                <?php
+                $i = 0;
+                while (have_rows('plans')) : the_row();
+                    $no_of_month = get_sub_field('no_of_month');
+                    $price = get_sub_field('price');
+                    //                    $plan_details = get_sub_field('plan_details');
+                    $button_name = get_sub_field('button_name');
+                    $button_link = get_sub_field('button_link');
+                    ?>
+
+                    <div class="col-md-4 col-12 col-sm-4">
+                        <div class="price-tabel wow flipInX">
+                            <span class="price-month"><?php echo $no_of_month; ?></span>
+                            <h4 class="price" style="background:url('<?php bloginfo('template_url'); ?>/assets/images/bg-brush-blue.png');"><sup><i class="lni-rupee"></i> </sup><?php echo $price ?>/<small>mo</small></h4>
+                            <?php if (have_rows('plan_details')) : ?>
+                                <ul> <?php while (have_rows('plan_details')) : the_row(); ?>
+
+                                        <li><?php echo get_sub_field('facility_list'); ?></li>
+
+                                    <?php endwhile; ?>
+                                </ul>
+                            <?php endif; ?>
+                            <?php if ($button_link != '') {
+                                ?>
+                                <a class="box-btn" href="<?php echo $button_link['url']; ?>">
+                                    <?php echo $button_name; ?>
+                                </a>
+
+                            <?php } ?>
+
+                        </div>
+                    </div>
+
+
+
+                <?php endwhile; ?>
+
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+<section class="client-says sec-padding">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="sec-heading text-center fadeInUp wow">
+                    <h1><?php the_field('main_title_testimoni'); ?></h1>
+                    <p><?php the_field('sub_title_testimoni'); ?></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <div class="client-say">
+                    <div class="client">
+                        <div class="client-slider owl-carousel owl-theme">
+                            <?php if (have_rows('testimonial_detailstestimonial')) : ?>
+                                <?php
+                                $i = 0;
+                                while (have_rows('testimonial_detailstestimonial')) : the_row();
+                                    $client_message = get_sub_field('client_message');
+                                    $client_image = get_sub_field('client_image');
+                                    $client_name = get_sub_field('client_name');
+                                    ?>
+
+                                    <div class="item wow flipInY">
+                                        <i class="lni-quotation"></i>
+                                        <p><?php echo $client_message ?></p>
+                                        <img src="<?php echo $client_image['url'] ?>">
+                                        <small> <?php echo $client_name ?> </small>
+                                    </div>
+                                <?php endwhile; ?>
+
+                            <?php endif; ?>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</section>
+
+<?php
+get_footer();
