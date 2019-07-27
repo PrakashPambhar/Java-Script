@@ -1,3 +1,42 @@
+/*=================================================
+	section background Small Icon animation 
+=================================================*/
+.section-decore .plus-2 {
+  position: absolute;
+  -webkit-animation: movearrow 7s linear infinite;
+          animation: movearrow 7s linear infinite;
+  right: unset;
+  left: 30%;
+  bottom: 70px;
+  opacity: 0.5; }
+
+@-webkit-keyframes movearrow {
+  0% {
+    -webkit-transform: rotate(-45deg) translateX(0px);
+            transform: rotate(-45deg) translateX(0px); }
+  50% {
+    -webkit-transform: rotate(-45deg) translateX(15px);
+            transform: rotate(-45deg) translateX(15px); }
+  100% {
+    -webkit-transform: rotate(-45deg) translateX(0px);
+            transform: rotate(-45deg) translateX(0px); } }
+
+@keyframes movearrow {
+  0% {
+    -webkit-transform: rotate(-45deg) translateX(0px);
+            transform: rotate(-45deg) translateX(0px); }
+  50% {
+    -webkit-transform: rotate(-45deg) translateX(15px);
+            transform: rotate(-45deg) translateX(15px); }
+  100% {
+    -webkit-transform: rotate(-45deg) translateX(0px);
+            transform: rotate(-45deg) translateX(0px); } }
+	    
+
+/*=================================================
+	Footer Social Icon
+=================================================*/
+
 .footer-widget .social-icon ul {
 	margin: 0px;
 	padding: 0px;
